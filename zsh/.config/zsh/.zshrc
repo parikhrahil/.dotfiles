@@ -26,4 +26,7 @@ fi
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
-source $ZDOTDIR/plugins/spaceship/spaceship.zsh
+fpath=($ZDOTDIR/plugins/pure $fpath)
+
+autoload -U promptinit; promptinit
+prompt pure
