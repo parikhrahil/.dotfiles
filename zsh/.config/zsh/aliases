@@ -1,0 +1,33 @@
+alias vi=nvim
+alias vim=nvim
+alias c='clear'
+alias ls='ls --color=auto'
+alias ll='ls -laF'
+alias lls='ls -larthF'
+alias lc='ls -CF'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias rc='$EDITOR $ZDOTDIR/.zshrc'
+alias aliases='$EDITOR $ZDOTDIR/aliases'
+alias gitaliases='$EDITOR $ZDOTDIR/gitaliases'
+alias work='cd $HOME/workspace'
+alias kittyconf='$EDITOR $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias ssconf='$EDITOR $XDG_CONFIG_HOME/starship.toml'
+alias nvimconf='$EDITOR $XDG_CONFIG_HOME/nvim'
+alias reload='source $ZDOTDIR/.zshrc'
+alias tmuxconf='$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf'
+
+function theme() {
+  eval "$(ln -sf $XDG_CONFIG_HOME/kitty/kitty-themes/themes/$1.conf $XDG_CONFIG_HOME/kitty/theme.conf)"
+}
+
+alias bud='brew update && brew upgrade && brew cleanup && brew doctor'
+
+function bun() {
+  brew uninstall $1
+  brew autoremove
+  brew cleanup
+}
+
+alias bs='brew search'
+alias bi='brew install'

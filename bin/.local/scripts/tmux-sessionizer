@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+	session=$(find $HOME/workspace -mindepth 1 -maxdepth 1 -type d | fzf)
+else
+	session="$1"
+fi
+session_name=$(basename "$session" | tr . _)
+
+# start server if not running
+if ! tmux info &>/dev/null; then
+	tmux start-server
+fi
+
+# create session if not exists
+if ! tmux has-session -t "$session_name" 2>/dev/null; then
+	tmux new-session -s "$session_name" -c "$session" -d
+fi
+
+# switch to session if inside of tmux
+if [[ "$TMUX" != '' ]]; then
+	tmux switch-client -t "$session_name"
+	exit 0
+fi
+
+# Attach to session if outside of tmux
+tmux attach -t "$session_name"
+exit 0
