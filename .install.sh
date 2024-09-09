@@ -27,6 +27,8 @@ install_homebrew() {
 		echo "Installing homebrew..."
 		sudo --validate # reset `sudo` timeout to use Homebrew install in noninteractive mode
 		NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+                (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+                eval "$(/opt/homebrew/bin/brew shellenv)"                
 	fi
 }
 
