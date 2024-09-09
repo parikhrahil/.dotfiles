@@ -25,6 +25,7 @@ fi
 # plugins
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/plugins/spaceship/spaceship.zsh
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 fpath=($ZDOTDIR/plugins/pure $fpath)
 
