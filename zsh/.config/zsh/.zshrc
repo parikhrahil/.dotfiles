@@ -9,6 +9,7 @@ autoload compinit; compinit
 _comp_options+=(globdots) # with hidden files
 
 function precmd {
+  source $HOME/.zshenv
   source $ZDOTDIR/aliases
   source $ZDOTDIR/gitaliases
 }
